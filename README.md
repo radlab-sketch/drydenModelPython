@@ -1,7 +1,7 @@
 
 ## Implementation of Dryden wind turbulence model in python
 
-The following python code implements the Dryden turbulence model defined by  transfer functions given in the US military in the handbook titled MIL-F-8785C. The **dryden_wind_velocities(height, airspeed)** function has two input parameter height and airspeed of the sUAV. The height and airspeed should be given in meters and meters/second respectively. . The height and airspeed are the two parameters which are necessary to compute the wind turbulence velocities according to the Dryden transfer functions. The height defines the altitude in meters at which the UAV is operating. The airspeed refers to the speed of the sUAV relative to the surrounding air. The Dryden transfer functions have been defined in feet/second and thus a unit conversion was applied. 
+The following python code implements the Dryden turbulence model defined by  transfer functions given in the US military in the handbook titled MIL-F-8785C. The **dryden_wind_velocities(height, airspeed)** function has two input parameter height and airspeed of the sUAV. The height and airspeed should be given in meters and meters/second respectively. The height and airspeed are the two parameters which are necessary to compute the wind turbulence velocities according to the Dryden transfer functions. The height defines the altitude in meters at which the UAV is operating. The airspeed refers to the speed of the sUAV relative to the surrounding air. The Dryden transfer functions have been defined in feet/second and thus a unit conversion was applied. 
 
 
 
@@ -60,7 +60,6 @@ samples3 = 10*np.random.normal(mean, std, size= num_samples)
 
 The seeds used to generate the random number sequence have been obtained from MATLAB from the Dryden block in SIMULINK. The random number seed used in python is the same as used in MATLAB.
 
-The height and airspeed are the two parameters which are necessary to compute the wind turbulence velocities according to the Dryden transfer functions. The height defines the altitude in meters at which the UAV is operating and the wind velocities are needed. The airspeed defines the speed of the UAV relative to the surrounding air. The transfer functions have been defined in feet/second and thus we apply a unit conversion before sending it to the transfer function. 
 
 ```python
   tf_u = u_transfer_function(height, airspeed)
@@ -78,7 +77,7 @@ Each of the transfer functions compute the transfer function using the
 signal.TranferFunction(num_u, den_u)
 ```
 
-which returns the coefficients of the computed transfer function. Each of the transfer functions have been defined according to the definitions given at the start of this document. 
+which returns the coefficients of the computed transfer function. 
 
 
 
@@ -94,6 +93,8 @@ which returns the coefficients of the computed transfer function. Each of the tr
 ```
 
 The response to the transfer function is computed using the lsim() function which takes in the coefficients of the transfer function, the white gaussian noise, and the number of samples as input parameters. The result obtained is in feet/second so before plotting the data we apply a unit conversion by multiplying each element in the list with "0.305" to give the wind speed in meter/second. 
+
+
 
 
 
