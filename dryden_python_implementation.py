@@ -1,4 +1,21 @@
 
+# If you find this work useful please consider citing using the following .bib or text entry:
+
+#Text entry
+#Abichandani, Pramod and Lobo, Deepan and Ford, Gabriel and Bucci, Donald and Kam, Moshe. "Wind Measurement and Simulation Techniques in Multi-Rotor Small Unmanned Aerial Vehicles." IEEE Access 8 (2020): 54910-54927.
+
+# Bib entry
+
+# @article{abichandani2020wind,
+#   title={Wind Measurement and Simulation Techniques in Multi-Rotor Small Unmanned Aerial Vehicles},
+#   author={Abichandani, Pramod and Lobo, Deepan and Ford, Gabriel and Bucci, Donald and Kam, Moshe},
+#   journal={IEEE Access},
+#   volume={8},
+#   pages={54910--54927},
+#   year={2020},
+#   publisher={IEEE}
+# }
+
 import scipy.io as sio
 import numpy as np
 import math
