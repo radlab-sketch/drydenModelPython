@@ -1,4 +1,24 @@
 
+ If you find this code useful in your research, please consider citing using the following .bib entry:
+ 
+ ```
+@article{abichandani2020wind,
+  title={Wind Measurement and Simulation Techniques in Multi-Rotor Small Unmanned Aerial Vehicles},
+  author={Abichandani, Pramod and Lobo, Deepan and Ford, Gabriel and Bucci, Donald and Kam, Moshe},
+  journal={IEEE Access},
+  volume={8},
+  pages={54910--54927},
+  year={2020},
+  publisher={IEEE}
+}
+ 
+ ```
+ 
+ Text entry: 
+ 
+ Abichandani, Pramod and Lobo, Deepan and Ford, Gabriel and Bucci, Donald and Kam, Moshe. "Wind Measurement and Simulation Techniques in Multi-Rotor Small Unmanned Aerial Vehicles." IEEE Access 8 (2020): 54910-54927.
+ 
+
 ## Implementation of Dryden wind turbulence model in python
 
 The python file dryden_python_implementation.py contains the Python implemenation of the Dryden transfer functions. 
