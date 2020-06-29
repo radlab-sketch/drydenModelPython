@@ -1,13 +1,10 @@
-# drydenModelPython
-
-The wind data here is generated using the Dryden Continuous Turbulence Model. Example of the data is stored in the csv file. 
-
-Two python files here plot the individual components of wind (across-wind, crosswind, vertical) and the wind turbulence field. 
-
 
 ## Implementation of Dryden wind turbulence model in python
 
-The following python code implements the Dryden turbulence model defined by  transfer functions given in the US military in the handbook titled MIL-F-8785C. 
+The following python code implements the Dryden turbulence model defined by  transfer functions given in the US military in the handbook titled MIL-F-8785C. The **dryden_wind_velocities(height, airspeed)** function has two input parameter height and airspeed of the sUAV. The height and airspeed should be given in meters and meters/second respectively. . The height and airspeed are the two parameters which are necessary to compute the wind turbulence velocities according to the Dryden transfer functions. The height defines the altitude in meters at which the UAV is operating. The airspeed refers to the speed of the sUAV relative to the surrounding air. The Dryden transfer functions have been defined in feet/second and thus a unit conversion was applied. 
+
+
+
 
 The Dryden transfer function defined in MIL-F-8785C for the along-wind, cross-wind, and vertical-wind directions are as follows
 
@@ -15,7 +12,6 @@ The Dryden transfer function defined in MIL-F-8785C for the along-wind, cross-wi
 
 ![along_wind_tf](/images/along_wind_tf.png)
 
-![image-20200405193227954](C:\Users\deepa\AppData\Roaming\Typora\typora-user-images\image-20200405193227954.png)
 
 **Cross-wind:**
 
@@ -47,9 +43,9 @@ turbulence_level = 15
 
 The turbulence level chosen is light for which the wind speed at 20 feet has been determined as 15 knots. 
 
-### The dryden_wind_velocities() function:
 
-The **dryden_wind_velocities(height, airspeed)** function has two input parameter height and airspeed of the sUAV. The height and airspeed should be given in meters and meters/second respectively. 
+
+
 
 ```python
 np.random.seed(23341)
