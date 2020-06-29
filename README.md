@@ -117,7 +117,7 @@ which returns the coefficients of the computed transfer function.
 
 The response to the transfer function is computed using the lsim() function which takes in the coefficients of the transfer function, the white gaussian noise, and the number of samples as input parameters. The result obtained is in feet/second so before plotting the data we apply a unit conversion by multiplying each element in the list with "0.305" to give the wind speed in meter/second. 
 
-**Note on white gaussian noise:**
+## Note on white gaussian noise: 
 
 The following piece of code generates a sequence of 1000 equally spaced values from 0 - 5. The probability distribuiton of the sequence follows a gaussian distribution. 
 
@@ -132,11 +132,11 @@ The following piece of code generates a sequence of 1000 equally spaced values f
 
 According to the US military handbook the dryden transfer functions are applied on a band-limited white gaussian input to produce the desired Dryden turbulence spectrum. Alternatively we have provided a sample .csv file of the band-limited white gaussian noise inputs from MATLAB. To use the white noise inputs from MATLAB the following steps should be followed: 
 
-## Step 1
+**Step 1**
 Uncomment the ```read_csv_file()``` function and define list variables ```t_w```, ```noise_1```, ```noise_2```, and ```noise_3``` 
 
 
-## Step 2
+**Step 2**
 The response of the transfer function will change accordingly and will now be given as 
 
 ```python
@@ -150,7 +150,7 @@ The response of the transfer function will change accordingly and will now be gi
   y3_f = [i * 0.305 for i in y3]
 ```
 
-## Step 3 
+**Step 3** 
 The methods use to plot the dryden specturm will now be given as 
 
 ```
