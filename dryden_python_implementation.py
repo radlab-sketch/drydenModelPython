@@ -16,6 +16,7 @@
 #   publisher={IEEE}
 # }
 
+###########################################################################################################
 import scipy.io as sio
 import numpy as np
 import math
@@ -71,6 +72,19 @@ def w_transfer_function(height, airspeed):
     H_v = signal.TransferFunction(num_w, den_w)
     return H_v
 
+# t_w = []
+# noise1 = []
+# noise2 = []
+# noise3 = []
+# def read_csv_file():
+#     with open('white_noise.csv') as csv_file:
+#         csv_reader = csv.reader(csv_file, delimiter=',')
+#         for row in csv_reader:
+#                 t_w.append(float(row[0]))
+#                 noise1.append(float(row[1]))
+#                 noise2.append(float(row[2]))
+#                 noise3.append(float(row[3]))
+
 
 
 
@@ -83,8 +97,6 @@ def dryden_wind_velocities(height, airspeed):
     std = 1 
     # create a sequence of 1000 equally spaced numeric values from 0 - 5
     t_p = np.linspace(0,5,1000)
-    # print(len(t))
-    # print(len(t_p))
     num_samples = 1000
     
     # the random number seed used same as from SIMULINK blockset
@@ -102,36 +114,48 @@ def dryden_wind_velocities(height, airspeed):
     tf_v = v_transfer_function(height, airspeed)
     tf_w = w_transfer_function(height, airspeed)
 
+    # Scale factor used to scale the white gaussian noise inputs. The scale factor used here is 10
+    #scale_factor = 10
+
+    # n1 = [i * scale_factor for i in noise1]
+    # n2 = [i * scale_factor for i in noise2]
+    # n3 = [i * scale_factor for i in noise3]
+
     # compute response to tranfer function
     tout1, y1, x1 = signal.lsim(tf_u, samples1, t_p)
-    print(tout1)
+    # tout1, y1, x1 = signal.lsim(tf_u, n1, t_w)
     # covert obtained values to meters/second
     y1_f = [i * 0.305 for i in y1]
     tout2, y2, x2 = signal.lsim(tf_v, samples2, t_p)
+    # tout2, y2, x2 = signal.lsim(tf_v, n2, t_w)
     y2_f = [i * 0.305 for i in y2]
     tout3, y3, x3 = signal.lsim(tf_w, samples3, t_p)
+    # tout3, y3, x3 = signal.lsim(tf_w, n3, t_w)
     y3_f = [i * 0.305 for i in y3]
 
-    #plots for along-wind velocities generated using Simulink and Python
+    #plots for along-wind velocities generated using Python
     plt.figure(1)
 
     plt.plot(t_p, y1_f, 'b')
+    # plt.plot(t_w, y1_f, 'b')
     plt.ylabel('along-wind in m/s (P)')
     plt.xlabel('time in seconds')
     plt.grid(True)
 
-    #plots for cross-wind velocities generated using Simulink and Python
+    #plots for cross-wind velocities generated using Python
     plt.figure(2)
 
     plt.plot(t_p, y2_f, 'r')
+    # plt.plot(t_w, y2_f, 'r')
     plt.ylabel('cross-wind in m/s (P)')
     plt.xlabel('time in seconds')
     plt.grid(True)
 
-    #plots for vertical-wind velocities generated using Simulink and Python
+    #plots for vertical-wind velocities generated using Python
     plt.figure(3)
 
     plt.plot(t_p, y3_f, 'g')
+    # plt.plot(t_w, y3_f, 'g')
     plt.ylabel('vertical-wind in m/s (P)')
     plt.xlabel('time in seconds')
     plt.grid(True)
