@@ -13,17 +13,17 @@ The Dryden transfer function defined in MIL-F-8785C for the along-wind, cross-wi
 
 **Along-wind:**
 
-![along_wind_tf](/images/logo.png)
+![along_wind_tf](/images/along_wind_tf.png)
 
 ![image-20200405193227954](C:\Users\deepa\AppData\Roaming\Typora\typora-user-images\image-20200405193227954.png)
 
 **Cross-wind:**
 
-![cross_wind_tf](/images/logo.png)
+![cross_wind_tf](/images/cross_wind_tf.png)
 
 **Vertical-wind:**
 
-![vertical_wind_tf](/images/logo.png)
+![vertical_wind_tf](/images/vertical_wind_tf.png)
 
 
 
@@ -31,13 +31,13 @@ Each of the transfer functions depend on the following parameters, scale length 
 
 The scale lengths are given as
 
-![scale_length](/images/logo.png)
+![scale_length](/images/scale_length_1.png)
 
 where h is the altitude at which the UAV is operating.
 
 The turbulence intensities are given as
 
-![turbulence_intensity](/images/logo.png)
+![turbulence_intensity](/images/turbulence_intensity.png)
 
 where W_20 is the wind speed in knots at 20 feet which has been predetermined and is used to define the turbulence level as light, moderate, and severe. 
 
