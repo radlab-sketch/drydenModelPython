@@ -32,7 +32,7 @@ def u_transfer_function(height, airspeed):
     #turbulence level defines value of wind speed in knots at 20 feet
     # turbulence_level = 15 * 0.514444 # convert speed from knots to meters per second
     turbulence_level = 15 
-    length_u = height / ((0.177 + 0.000823*height)**(0.2))
+    length_u = height / ((0.177 + 0.000823*height)**(1.2))
     # length_u = 1750
     sigma_w = 0.1 * turbulence_level 
     sigma_u = sigma_w / ((0.177 + 0.000823*height) ** (0.4))
@@ -46,7 +46,7 @@ def v_transfer_function(height, airspeed):
     #turbulence level defines value of wind speed in knots at 20 feet
     # turbulence_level = 15 * 0.514444 # convert speed from knots to meters per second
     turbulence_level = 15 
-    length_v = height / ((0.177 + 0.000823*height)**(0.2))
+    length_v = height / ((0.177 + 0.000823*height)**(1.2))
     # length_v = 1750
     sigma_w = 0.1 * turbulence_level 
     sigma_v = sigma_w / ((0.177 + 0.000823*height) ** (0.4))
